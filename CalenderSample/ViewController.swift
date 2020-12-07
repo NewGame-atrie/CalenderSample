@@ -40,22 +40,23 @@ class ViewController: UIViewController, EKEventEditViewDelegate {
                     eventController.editViewDelegate = self
                     self.present(eventController, animated: true, completion: nil)
                     
-                    //結果のアラート表示
-                    do {
-                        try self.eventStore.save(event, span: .thisEvent)
-                        let alert = UIAlertController(title:"保存完了",message:"カレンダーに保存されました。", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    catch {
-                        print("Save is failed.")
-                    }
-                } else {
-                let alert = UIAlertController(title:"カレンダーアクセス",message:"カレンダーに保存するためには、\n設定>\nプライバシー>\nカレンダー\nでアクセスを許可して下さい。", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                    self.showalert()
                 }
             }
         })
+    }
+    
+    //結果のアラート表示
+    func showalert(){
+        
+//        if ##{
+//            let alert = UIAlertController(title:"保存完了",message:"カレンダーに保存されました。", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        } else {
+//            let alert = UIAlertController(title:"カレンダーアクセス",message:"カレンダーに保存するためには、\n設定>\nプライバシー>\nカレンダー\nでアクセスを許可して下さい。", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
     }
 }
